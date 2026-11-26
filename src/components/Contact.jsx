@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import { ArrowUpRight, Check, Copy, Download, Mail, Phone } from 'lucide-react'
+import { ArrowUpRight, Check, Copy, Download, Eye, FileText, Mail, Phone } from 'lucide-react'
 import { profile } from '../data/content.js'
 import Magnetic from './ui/Magnetic.jsx'
 import { GithubIcon, LinkedinIcon } from './ui/BrandIcons.jsx'
@@ -29,7 +29,6 @@ export default function Contact() {
   const links = [
     { label: 'LinkedIn', href: profile.socials.linkedin, Icon: LinkedinIcon, note: 'Connect professionally' },
     { label: 'GitHub', href: profile.socials.github, Icon: GithubIcon, note: 'Browse the code' },
-    { label: 'Résumé', href: profile.resume, Icon: Download, note: 'PDF, 2 pages', download: true },
   ]
 
   return (
@@ -90,11 +89,12 @@ export default function Contact() {
 
           {/* Links */}
           <ul className="grid gap-3">
-            {links.map(({ label, href, Icon, note, download }) => (
+            {links.map(({ label, href, Icon, note }) => (
               <li key={label} data-reveal>
                 <a
                   href={href}
-                  {...(download ? { download: true } : { target: '_blank', rel: 'noreferrer' })}
+                  target="_blank"
+                  rel="noreferrer"
                   onPointerMove={spotlight}
                   className="spotlight glass group flex items-center justify-between rounded-2xl px-5 py-4 transition-colors duration-500 hover:border-ember-400/30"
                 >
@@ -111,6 +111,41 @@ export default function Contact() {
                 </a>
               </li>
             ))}
+            {/* Résumé: view and download as separate actions */}
+            <li data-reveal>
+              <div
+                onPointerMove={spotlight}
+                className="spotlight glass flex items-center justify-between gap-3 rounded-2xl px-5 py-4 transition-colors duration-500 hover:border-ember-400/30"
+              >
+                <span className="flex items-center gap-4">
+                  <span className="grid h-10 w-10 place-items-center rounded-xl border border-white/10 bg-white/[0.03] text-sand-100">
+                    <FileText className="h-[18px] w-[18px]" />
+                  </span>
+                  <span>
+                    <span className="block font-medium text-sand-50">Résumé</span>
+                    <span className="block text-xs text-sand-500">PDF, 2 pages</span>
+                  </span>
+                </span>
+                <span className="flex shrink-0 gap-2">
+                  <a
+                    href={profile.resume}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.03] px-3.5 py-2 text-sm text-sand-50 transition-colors hover:border-ember-400/50 hover:bg-ember-400/10"
+                  >
+                    <Eye className="h-4 w-4" /> View
+                  </a>
+                  <a
+                    href={profile.resume}
+                    download
+                    className="inline-flex items-center gap-1.5 rounded-full bg-sand-50 px-3.5 py-2 text-sm font-medium text-ink-900 transition-colors hover:bg-ember-300"
+                  >
+                    <Download className="h-4 w-4" />
+                    <span className="hidden sm:inline">Download</span>
+                  </a>
+                </span>
+              </div>
+            </li>
           </ul>
         </div>
       </div>

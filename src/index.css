@@ -97,3 +97,34 @@
     animation: none;
   }
 }
+
+/* "How I work" · polish step: a dot moving with the site's easing */
+.ease-demo {
+  animation: easeDemo 1.6s cubic-bezier(0.2, 0.8, 0.2, 1) 1.2s infinite alternate both;
+}
+@keyframes easeDemo {
+  to {
+    left: calc(100% - 1.25rem);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ease-demo {
+    animation: none;
+  }
+}
+
+/* Stack orbit: detail panel swap */
+.orbit-fade {
+  animation: orbitFade 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+@keyframes orbitFade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .orbit-fade {
+    animation: none;
+  }
+}

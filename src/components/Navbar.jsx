@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
-import { Download, Menu, X } from 'lucide-react'
+import { Download, Eye, Menu, X } from 'lucide-react'
 import { nav, profile } from '../data/content.js'
 
 export default function Navbar() {
@@ -81,14 +81,28 @@ export default function Navbar() {
         </ul>
 
         <div className="flex items-center gap-1.5">
-          <a
-            href={profile.resume}
-            download
-            className="inline-flex items-center gap-2 rounded-full bg-sand-50 px-4 py-2 text-sm font-medium text-ink-900 transition-colors duration-300 hover:bg-ember-300"
-          >
-            <Download className="h-4 w-4" />
-            <span className="hidden sm:inline">Resume</span>
-          </a>
+          <div className="inline-flex items-center overflow-hidden rounded-full bg-sand-50 text-ink-900">
+            <a
+              href={profile.resume}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="View resume"
+              className="inline-flex items-center gap-2 py-2 pl-4 pr-3 text-sm font-medium transition-colors duration-300 hover:bg-ember-300"
+            >
+              <Eye className="h-4 w-4" />
+              <span className="hidden sm:inline">Resume</span>
+            </a>
+            <span className="h-5 w-px bg-ink-900/15" aria-hidden />
+            <a
+              href={profile.resume}
+              download
+              aria-label="Download resume"
+              title="Download PDF"
+              className="grid h-9 place-items-center pl-2.5 pr-3.5 transition-colors duration-300 hover:bg-ember-300"
+            >
+              <Download className="h-4 w-4" />
+            </a>
+          </div>
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}

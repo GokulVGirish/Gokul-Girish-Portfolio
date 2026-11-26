@@ -32,7 +32,7 @@ export const stats = [
 ]
 
 export const nav = [
-  { id: 'about', label: 'About' },
+  { id: 'about', label: 'Process' },
   { id: 'skills', label: 'Stack' },
   { id: 'experience', label: 'Journey' },
   { id: 'projects', label: 'Work' },
@@ -64,8 +64,6 @@ export const skillGroups = [
     items: [
       "Node.js",
       "Express.js",
-      "PHP",
-      "Filament",
       "REST APIs",
       "Socket.io",
       "WebRTC",
@@ -271,5 +269,86 @@ export const pillars = [
     title: 'FinTech product',
     text: 'Lending workflows, solar and EV loan onboarding, KYC checks and operations dashboards for a real NBFC.',
     tags: ['Loan origination', 'KYC / PAN', 'Dashboards'],
+  },
+]
+
+/* ── "How I work" ─────────────────────────────────────────────
+   One example feature (a password reset flow) followed from ticket to production. */
+export const processSteps = [
+  {
+    key: 'scope',
+    label: 'Scope',
+    title: 'Break the ticket down before touching code.',
+    text: 'I read the requirement, ask the questions nobody wrote down, agree on acceptance criteria, and split the work into tasks I can estimate.',
+    tags: ['Requirements', 'Edge cases', 'Estimation'],
+  },
+  {
+    key: 'design',
+    label: 'Design',
+    title: 'Agree on the data and the API contract first.',
+    text: 'Schema changes go in as migrations, and endpoints, payloads and error codes are settled early so frontend and backend can move in parallel.',
+    tags: ['PostgreSQL', 'Migrations', 'REST'],
+  },
+  {
+    key: 'build',
+    label: 'Build',
+    title: 'Build on a branch, in small commits.',
+    text: 'A feature branch with small, focused commits: the backend first, then the UI wired to real endpoints, so every commit leaves the app working.',
+    tags: ['Git', 'Node.js', 'React'],
+  },
+  {
+    key: 'verify',
+    label: 'Verify',
+    title: 'Test it, then let someone else try to break it.',
+    text: 'Tests for the logic and the edge cases, a pull request with clear notes, and CI running lint, tests and build before anything gets merged.',
+    tags: ['Jest', 'Code review', 'CI'],
+  },
+  {
+    key: 'ship',
+    label: 'Ship',
+    title: 'Ship it, then watch it in production.',
+    text: 'Merge, the pipeline deploys, and I keep an eye on logs and errors after the release. A feature is done when it works for real users.',
+    tags: ['CI/CD', 'AWS · Vercel', 'Monitoring'],
+  },
+]
+
+/* ── Stack orbit ──────────────────────────────────────────────────
+   Inner rings spin faster. `abbr` is shown on small screens. */
+export const orbitRings = [
+  {
+    name: 'Frontend',
+    color: '#f5c48a',
+    speed: 0.24,
+    tools: [
+      { name: 'React', abbr: 'Re', note: 'Component-driven interfaces, from this site to Zusand, a cookie-auth frontend built with TanStack Query.' },
+      { name: 'Next.js', abbr: 'Nx', note: 'Routing, server rendering and SEO-friendly React apps.' },
+      { name: 'TypeScript', abbr: 'TS', note: 'Typed props and API contracts, so bugs show up in the editor instead of in production.' },
+      { name: 'Tailwind', abbr: 'Tw', note: 'Design tokens and fast, consistent styling. This whole site is Tailwind.' },
+      { name: 'GSAP', abbr: 'GS', note: 'Scroll and interaction animation, including the pinned process section and this orbit.' },
+    ],
+  },
+  {
+    name: 'Backend',
+    color: '#e8954a',
+    speed: 0.16,
+    tools: [
+      { name: 'Node.js', abbr: 'No', note: 'REST APIs, auth flows and background jobs.' },
+      { name: 'Express', abbr: 'Ex', note: 'Kalikaal, my first full web app: an online fashion store with EJS views and PostgreSQL.' },
+      { name: 'REST APIs', abbr: 'RE', note: 'Predictable endpoints with validation, proper status codes and clear errors.' },
+      { name: 'Socket.io', abbr: 'IO', note: 'Realtime features like live updates and chat.' },
+      { name: 'JWT Auth', abbr: 'JW', note: 'Token and cookie-based authentication that stays secure.' },
+    ],
+  },
+  {
+    name: 'Data & cloud',
+    color: '#bfb4a3',
+    speed: 0.11,
+    tools: [
+      { name: 'PostgreSQL', abbr: 'PG', note: 'Relational schemas, migrations, transactions and reporting queries.' },
+      { name: 'MongoDB', abbr: 'Mo', note: 'Document data for MERN projects.' },
+      { name: 'AWS', abbr: 'AW', note: 'Hosting and file storage with EC2 and S3.' },
+      { name: 'Vercel', abbr: 'Vc', note: 'Deploys for frontends, including this portfolio.' },
+      { name: 'Git', abbr: 'Gt', note: 'Branches, reviews and a commit history that makes sense.' },
+    ],
   },
 ]
